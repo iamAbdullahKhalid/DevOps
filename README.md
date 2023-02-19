@@ -15,6 +15,7 @@ The Docker infrastructure consists of three main components: the Docker engine, 
 Docker engine: This is the core of the Docker infrastructure, responsible for creating and managing containers. It runs as a daemon on the host machine and communicates with the Docker client to execute commands.
 Docker client: This is the command-line interface that allows you to interact with the Docker engine. You can use the Docker client to create and manage containers, images, and networks, among other things.
 Docker registry: This is the repository where Docker images are stored and distributed. It can be a public registry, such as Docker Hub, or a private registry, which is typically used for internal applications.
+
 Docker Tools and Terms
 Here are some of the most common Docker tools and terms you should be familiar with:
 
@@ -24,6 +25,7 @@ Container: A running instance of an image.
 Docker Hub: A public repository of Docker images.
 Docker Compose: A tool for defining and running multi-container Docker applications.
 Docker Swarm: A tool for orchestrating and scaling Docker containers across multiple hosts.
+
 Docker Commands
 Here are some basic Docker commands you can use to manage the Docker infrastructure:
 
@@ -115,5 +117,6 @@ Docker Compose is a tool that allows you to define and run multi-container Docke
 Docker Swarm is a tool for orchestrating and scaling Docker containers across multiple hosts. It allows you to deploy a cluster of Docker hosts and manage them as a single entity. Docker Swarm provides built-in load balancing and automatic failover, which makes it easy to handle varying levels of traffic and ensure high availability.
 
 Conclusion
+
 Docker has become a popular platform for developing, deploying, and running applications in a containerized environment. Containers provide many benefits, including portability, scalability, consistency, and efficiency. Docker provides a variety of tools and terms that allow developers to build, test, and deploy applications in a consistent and reproducible way. With Docker, you can easily package your application and its dependencies into a single container, which can run on any platform that supports Docker. Docker also provides tools for deploying and orchestrating containers, including Docker Compose and Docker Swarm. By using Docker, developers can improve the speed, reliability, and efficiency of their software development and deployment processes.
 
