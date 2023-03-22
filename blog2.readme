@@ -1,0 +1,29 @@
+An Introduction to Kaniko :A daemonless approach for Containerization
+Introduction:
+As the use of containers continues to grow, so too does the need for tools to help build and manage them. One such tool is Kaniko, an open-source project from Google that allows users to build container images without requiring privileged access. This makes it a great choice for use in Kubernetes and Google Container Builder environments, where security is of utmost importance.
+
+In this blog post, we’ll take a closer look at Kaniko and how it works. We’ll also discuss how to use it to build container images in Kubernetes and Google Container Builder.
+
+What is Kaniko?
+Kaniko is a tool for building container images from a Dockerfile, without the need for privileged access. It runs as a container itself and can be run anywhere, making it a great choice for use in Kubernetes and other container orchestration platforms.
+
+How does Kaniko work?
+The workflow for using Kaniko to build container images involves the following steps:
+
+Create a Dockerfile — This is the file that specifies the steps needed to build your container image.
+Create a build context — This is the directory containing the source code and any other files needed to build the container image.
+Run Kaniko — Use Kaniko to build the container image using the Dockerfile and build context.
+Push the image to a registry — Push the final container image to a registry so that it can be used by others.
+Kaniko works by taking three arguments: a build context, the name of the registry to which it should push the final image, and the path to the Dockerfile. Let’s take a closer look at each of these:
+
+Build context — The build context is the directory containing the source code and any other files needed to build the container image. This directory is sent to Kaniko as a tarball, which it then extracts and uses to build the image.
+Registry name — The name of the registry to which the final image should be pushed. This can be a public or private registry, depending on your needs.
+Dockerfile path — The path to the Dockerfile that should be used to build the image. This can be a local file or a file hosted on a remote Git repository.
+Once these three arguments have been provided, Kaniko will begin the process of building the container image. It does this by running each step in the Dockerfile inside its own container, rather than on the host machine. This ensures that the build process is fully isolated and does not require any privileged access.
+docker run -v /path/to/build/context:/workspace -v /path/to/kube/config:/kaniko/.kube/config gcr.io/kaniko-project/executor:latest --context=dir:///workspace --dockerfile=/workspace/Dockerfile --destination=my-registry/my-image:latest
+This command runs Kaniko in a Docker container, with two volumes mounted: one for the build context and one for the Kubernetes configuration file. The --context and --dockerfile flags specify the build context and path to the Dockerfile, respectively. The --destination flag specifies the registry and name of the final container image.
+
+In addition to this basic workflow, Kaniko also supports several other features, including caching, layer skipping, and build arguments. These features can help improve the efficiency and flexibility of your container image builds.
+
+Overall, Kaniko is a powerful tool for building container images without requiring privileged access, making it a great choice for use in Kubernetes and other container orchestration platforms. By understanding how Kaniko works and the commands used to run it, you can improve the security and efficiency of your container image builds.
+
